@@ -1,0 +1,370 @@
+.TH "/home/lucio/Documentos/desenvolvimento/algoritmo_C/bibliotecas/static/libTimeTask/includes/ctrlTask.h" 3 "Sun Apr 16 2017" "Version 1.0.00" "Library Time Task" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/lucio/Documentos/desenvolvimento/algoritmo_C/bibliotecas/static/libTimeTask/includes/ctrlTask.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_ELEMENTS\fP   3"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBstArrayTask\fP * \fBptrArrayTask_T\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBgetVersionLibTimeTask\fP (void)"
+.br
+.RI "\fIfuncao que retorna a versao da bilbioteca, versao esta passada via Makefile \fP"
+.ti -1c
+.RI "char * \fBgetNameTimeTask\fP (void)"
+.br
+.RI "\fIfuncao que retorna o nome da bilbioteca, nome este passado via Makefile \fP"
+.ti -1c
+.RI "int \fBArray_new_r\fP (\fBptrArrayTask_T\fP *ptrArrayTask)"
+.br
+.RI "\fIfuncao que inicializa a estrutura com a lista de tarefas \fP"
+.ti -1c
+.RI "int \fBArray_getLength\fP (\fBptrArrayTask_T\fP ptrArrayTask)"
+.br
+.RI "\fIfuncao que retorna a quantidade de elementos atribuidos a lista de tarefas \fP"
+.ti -1c
+.RI "int \fBArray_append\fP (\fBptrArrayTask_T\fP ptrArrayTask, uint8_t *taskID, uint32_t valueTimer, void(*proc)(void))"
+.br
+.RI "\fIfuncao que adiciona elementos a lista de tarefas e inicializa o time \fP"
+.ti -1c
+.RI "int \fBexecTask\fP (\fBptrArrayTask_T\fP ptrArrayTask)"
+.br
+.RI "\fIfuncao que executa as tarefas conforme o intervalo de tempo parametrizado \fP"
+.ti -1c
+.RI "int \fBstartTask\fP (\fBptrArrayTask_T\fP ptrArrayTask, uint8_t index, uint32_t valueTimer)"
+.br
+.RI "\fIfuncao que adiciona elementos a lista de tarefas e inicializa o time \fP"
+.ti -1c
+.RI "int \fBstopTask\fP (\fBptrArrayTask_T\fP ptrArrayTask, uint8_t index)"
+.br
+.RI "\fIfuncao que executa as tarefas conforme o intervalo de tempo parametrizado \fP"
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_ELEMENTS   3"
+Definicao da quantidade maxima de tarefas a ser controlada 
+.PP
+Definition at line 18 of file ctrlTask\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBstArrayTask\fP* \fBptrArrayTask_T\fP"
+
+.PP
+Definition at line 20 of file ctrlTask\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "int Array_append (\fBptrArrayTask_T\fP ptrArrayTask, uint8_t * taskID, uint32_t valueTimer, void(*)(void) proc)"
+
+.PP
+funcao que adiciona elementos a lista de tarefas e inicializa o time 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptrArrayTask\fP - ponteiro para a estrutura com a lista de tarefas 
+.br
+\fIvalueTimer\fP - intervalo de tempo em que a tarefa sera executada em milisegundos 
+.br
+\fIproc\fP - ponteiro para função que será executada 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+dt->num_elements - quantidade de elemtos da lista de tarefas 
+.PP
+-1 - se o ponteiro para ptrArrayTask nao foi inicializado 
+.PP
+-2 - se o ponteiro para proc estiver vazio 
+.PP
+-3 - se ja atingil a quantidade maxima de elementos 
+.RE
+.PP
+
+.PP
+Definition at line 130 of file ctrlTask\&.c\&.
+.SS "int Array_getLength (\fBptrArrayTask_T\fP ptrArrayTask)"
+
+.PP
+funcao que retorna a quantidade de elementos atribuidos a lista de tarefas 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptrArrayTask\fP - ponteiro para a estrutura com a lista de tarefas 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+dt->num_elements - quantidade de elemtos da lista de tarefas 
+.PP
+-1 - se o ponteiro para ptrArrayTask nao foi inicializado 
+.RE
+.PP
+
+.PP
+Definition at line 104 of file ctrlTask\&.c\&.
+.SS "int Array_new_r (\fBptrArrayTask_T\fP * ptrArrayTask)"
+
+.PP
+funcao que inicializa a estrutura com a lista de tarefas 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+newstArrayTask - ponteiro para a nova estrutura 
+.PP
+NULL - se nao pode inicializar a estrutura 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file ctrlTask\&.c\&.
+.SS "int execTask (\fBptrArrayTask_T\fP ptrArrayTask)"
+
+.PP
+funcao que executa as tarefas conforme o intervalo de tempo parametrizado 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptrArrayTask\fP - ponteiro para a estrutura com a lista de tarefas 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 - se tudo ocorreu com sucesso 
+.PP
+-1 - se o ponteiro para ptrArrayTask nao foi inicializado 
+.PP
+-2 - se o ponteiro para proc estiver vazio 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file ctrlTask\&.c\&.
+.SS "char* getNameTimeTask (void)"
+
+.PP
+funcao que retorna o nome da bilbioteca, nome este passado via Makefile 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+29/01/15 14:44
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LIBNAME - nome da biblioteca recebido via Makefile 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file ctrlTask\&.c\&.
+.SS "int getVersionLibTimeTask (void)"
+
+.PP
+funcao que retorna a versao da bilbioteca, versao esta passada via Makefile 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+29/01/15 14:44
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+VERSAO_LIB - versao da biblioteca recebida via Makefile 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file ctrlTask\&.c\&.
+.SS "int startTask (\fBptrArrayTask_T\fP ptrArrayTask, uint8_t index, uint32_t valueTimer)"
+
+.PP
+funcao que adiciona elementos a lista de tarefas e inicializa o time 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptrArrayTask\fP - ponteiro para a estrutura com a lista de tarefas 
+.br
+\fIvalueTimer\fP - intervalo de tempo em que a tarefa sera executada em milisegundos 
+.br
+\fIproc\fP - ponteiro para função que será executada 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+dt->num_elements - quantidade de elemtos da lista de tarefas 
+.PP
+-1 - se o ponteiro para ptrArrayTask nao foi inicializado 
+.PP
+-2 - se o ponteiro para proc estiver vazio 
+.PP
+-3 - se ja atingil a quantidade maxima de elementos
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptrArrayTask\fP - ponteiro para a estrutura com a lista de tarefas 
+.br
+\fIvalueTimer\fP - intervalo de tempo em que a tarefa sera executada em milisegundos 
+.br
+\fIproc\fP - ponteiro para função que será executada 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+dt->num_elements - quantidade de elemtos da lista de tarefas 
+.PP
+-1 - se o ponteiro para ptrArrayTask nao foi inicializado 
+.PP
+-2 - se o index for maior que a quantidade de elementos ativos na lista 
+.PP
+-3 - se o ponteiro para proc estiver vazio 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file ctrlTask\&.c\&.
+.SS "int stopTask (\fBptrArrayTask_T\fP ptrArrayTask, uint8_t index)"
+
+.PP
+funcao que executa as tarefas conforme o intervalo de tempo parametrizado 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptrArrayTask\fP - ponteiro para a estrutura com a lista de tarefas 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 - se tudo ocorreu com sucesso 
+.PP
+-1 - se o ponteiro para ptrArrayTask nao foi inicializado 
+.PP
+-2 - se o ponteiro para proc estiver vazio
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptrArrayTask\fP - ponteiro para a estrutura com a lista de tarefas 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 - se tudo ocorreu com sucesso 
+.PP
+-1 - se o ponteiro para ptrArrayTask nao foi inicializado 
+.PP
+-2 - se o index for maior que a quantidade de elementos ativos na lista 
+.RE
+.PP
+
+.PP
+Definition at line 257 of file ctrlTask\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Library Time Task from the source code\&.

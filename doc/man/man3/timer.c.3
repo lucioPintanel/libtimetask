@@ -1,0 +1,182 @@
+.TH "/home/lucio/Documentos/desenvolvimento/algoritmo_C/bibliotecas/static/libTimeTask/scr/timer.c" 3 "Sun Apr 16 2017" "Version 1.0.00" "Library Time Task" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/lucio/Documentos/desenvolvimento/algoritmo_C/bibliotecas/static/libTimeTask/scr/timer.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <time\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <errno\&.h>\fP
+.br
+\fC#include <sys/time\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'timer\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBtimeoutInit\fP (struct \fBstTimeoutGeral_t\fP *timeoutStruct, uint32_t timeoutValue)"
+.br
+.RI "\fIInicializa a estrutura fb_stTimeoutGeral\&. \fP"
+.ti -1c
+.RI "\fBenTimeoutResult_t\fP \fBtimeoutCheck\fP (struct \fBstTimeoutGeral_t\fP *timeoutStruct)"
+.br
+.RI "\fIfuncao que verifica se o valor passado valor alvo foi atingido \fP"
+.ti -1c
+.RI "uint8_t \fBgetInitTimer\fP (struct \fBstTimeoutGeral_t\fP *timeoutStruct)"
+.br
+.RI "\fIfuncao que retorna se a estrutura foi inicializada \fP"
+.ti -1c
+.RI "void \fBsetInitTimer\fP (struct \fBstTimeoutGeral_t\fP *timeoutStruct, uint8_t state)"
+.br
+.RI "\fIfuncao que retorna se a estrutura foi inicializada \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor:\fP
+.RS 4
+: lucio
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+: 10 de Abril de 2013, 12:17 
+.RE
+.PP
+
+.PP
+Definition in file \fBtimer\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t getInitTimer (struct \fBstTimeoutGeral_t\fP * timeoutStruct)"
+
+.PP
+funcao que retorna se a estrutura foi inicializada 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeoutStruct\fP - ponteiro para a estrutura de controle de tempo 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1 - se a estrutura foi inicializada 
+.PP
+0 - se a estrutura nao foi inicializada 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file timer\&.c\&.
+.SS "void setInitTimer (struct \fBstTimeoutGeral_t\fP * timeoutStruct, uint8_t state)"
+
+.PP
+funcao que retorna se a estrutura foi inicializada 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeoutStruct\fP - ponteiro para a estrutura de controle de tempo 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1 - se a estrutura foi inicializada 
+.PP
+0 - se a estrutura nao foi inicializada 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file timer\&.c\&.
+.SS "\fBenTimeoutResult_t\fP timeoutCheck (struct \fBstTimeoutGeral_t\fP * timeoutStruct)"
+
+.PP
+funcao que verifica se o valor passado valor alvo foi atingido 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeoutStruct\fP estrutura inicializada com os valores para verificacao 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+fb_TimeoutResultElapsed se ja decorreu o tempo 
+.PP
+fb_TimeoutResultNotElapsed se ainda nao decorreu o tempo esperado 
+.RE
+.PP
+
+.PP
+Definition at line 80 of file timer\&.c\&.
+.SS "void timeoutInit (struct \fBstTimeoutGeral_t\fP * timeoutStruct, uint32_t timeoutValue)"
+
+.PP
+Inicializa a estrutura fb_stTimeoutGeral\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Lucio Mauro da Silva Pintanel 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+criado em: 28/03/14 15:55
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItimeoutStruct\fP estrutura que sera inicializada 
+.br
+\fItimeoutValue\fP valor a ser verificado se foi atingido 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file timer\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Library Time Task from the source code\&.

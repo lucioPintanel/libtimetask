@@ -1,0 +1,5 @@
+<map id="getInitTimer" name="getInitTimer">
+<area shape="rect" id="node2" href="$ctrl_task_8c.html#aa2431ef59f54b9fee42170530f204583" title="funcao que executa as tarefas conforme o intervalo de tempo parametrizado " alt="" coords="144,5,223,32"/>
+<area shape="rect" id="node4" href="$ctrl_task_8c.html#a81b3194745a58936570052d423e34568" title="funcao que adiciona elementos a lista de tarefas e inicializa o time " alt="" coords="145,56,222,83"/>
+<area shape="rect" id="node3" href="$principal_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="271,31,321,57"/>
+</map>
