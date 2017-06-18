@@ -24,6 +24,7 @@
 //######################     V A R I A V E I S     ########################//
 
 //#########################     F U N C O E S     #########################//
+
 /**
  * \brief Inicializa a estrutura fb_stTimeoutGeral
  * \author Lucio Mauro da Silva Pintanel
@@ -32,7 +33,7 @@
  * @param timeoutStruct estrutura que sera inicializada
  * @param timeoutValue valor a ser verificado se foi atingido
  */
-void timeoutInit(struct stTimeoutGeral_t* timeoutStruct, uint32_t timeoutValue)
+void timeoutInit(stTimeoutGeral_t* timeoutStruct, uint32_t timeoutValue)
 {
 	struct timezone tmpTimezone;
 	gettimeofday(&timeoutStruct->StartTime, &tmpTimezone);
@@ -49,22 +50,22 @@ void timeoutInit(struct stTimeoutGeral_t* timeoutStruct, uint32_t timeoutValue)
  * @return tmpDiffMiliSecs - tempo decorrido
  * @return TimeoutResultElapsed - informa que decorreu o tempo
  */
-static uint32_t timeoutGeral(struct stTimeoutGeral_t* timeoutStruct)
+static uint32_t timeoutGeral(stTimeoutGeral_t* timeoutStruct)
 {
 	struct timeval tmpTimeval;
 	struct timezone tmpTimezone;
-	
+
 	if (timeoutStruct->TimeoutValue == 0) {
 		return TimeoutResultElapsed;
 	}
 	gettimeofday(&tmpTimeval, &tmpTimezone);
-	
+
 	uint32_t tmpDiffMiliSecs = ((tmpTimeval.tv_sec * 1000)
 		+ (tmpTimeval.tv_usec / 1000));
-		
+
 	tmpDiffMiliSecs -= ((timeoutStruct->StartTime.tv_sec * 1000)
 		+ (timeoutStruct->StartTime.tv_usec / 1000));
-		
+
 	return tmpDiffMiliSecs;
 }
 
@@ -77,9 +78,9 @@ static uint32_t timeoutGeral(struct stTimeoutGeral_t* timeoutStruct)
  * @return fb_TimeoutResultElapsed se ja decorreu o tempo
  * @return fb_TimeoutResultNotElapsed se ainda nao decorreu o tempo esperado
  */
-enTimeoutResult_t timeoutCheck(struct stTimeoutGeral_t* timeoutStruct)
+enTimeoutResult_t timeoutCheck(stTimeoutGeral_t* timeoutStruct)
 {
-	return ( (timeoutGeral(timeoutStruct) > timeoutStruct->TimeoutValue)
+	return( (timeoutGeral(timeoutStruct) > timeoutStruct->TimeoutValue)
 		? TimeoutResultElapsed
 		: TimeoutResultNotElapsed);
 }
@@ -93,9 +94,9 @@ enTimeoutResult_t timeoutCheck(struct stTimeoutGeral_t* timeoutStruct)
  * @return 1 - se a estrutura foi inicializada
  * @return 0 - se a estrutura nao foi inicializada
  */
-uint8_t getInitTimer(struct stTimeoutGeral_t* timeoutStruct)
+uint8_t getInitTimer(stTimeoutGeral_t* timeoutStruct)
 {
-	return timeoutStruct->Initialized ? 1:0;
+	return timeoutStruct->Initialized ? 1 : 0;
 }
 
 /**
@@ -107,7 +108,7 @@ uint8_t getInitTimer(struct stTimeoutGeral_t* timeoutStruct)
  * @return 1 - se a estrutura foi inicializada
  * @return 0 - se a estrutura nao foi inicializada
  */
-void setInitTimer(struct stTimeoutGeral_t* timeoutStruct, uint8_t state)
+void setInitTimer(stTimeoutGeral_t* timeoutStruct, uint8_t state)
 {
 	timeoutStruct->Initialized = state;
 }
